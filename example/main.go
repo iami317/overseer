@@ -24,7 +24,6 @@ func prog(state overseer.State) {
 		fmt.Fprintf(w, "app#%s (%s) says hello\n", BuildID, state.ID)
 	}))
 	http.Serve(state.Listener, nil)
-	fmt.Printf("app#%s (%s) exiting...\n", BuildID, state.ID)
 }
 
 // then create another 'main' which runs the upgrades
