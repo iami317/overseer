@@ -1,7 +1,7 @@
 
 ### Issues
 
-If you've found a bug, please create an [issue](https://github.com/jpillora/overseer/issues) or if possible, create a fix and send in a pull request.
+If you've found a bug, please create an [issue](https://github.com/menglh/overseer/issues) or if possible, create a fix and send in a pull request.
 
 ## Contributing
 
@@ -61,7 +61,7 @@ In general New fetchers should go in their own repos which can be linked to from
       * Embed public keys into the binaries with
 
         ```
-        -ldflags "-X github.com/jpillora/overseer/fetcher.PublicKey=A" -o myapp
+        -ldflags "-X github.com/menglh/overseer/fetcher.PublicKey=A" -o myapp
         ```
       * Only accept future updates with binaries signed by the matching private key
 

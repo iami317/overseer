@@ -1,3 +1,4 @@
+//go:build windows
 // +build windows
 
 package overseer
@@ -8,8 +9,6 @@ import (
 	"os"
 	"strings"
 	"time"
-
-	"github.com/StackExchange/wmi"
 )
 
 var (
@@ -115,7 +114,7 @@ func WMIQueryWithContext(ctx context.Context, query string, dst interface{}, con
 	}
 }
 
-// overwrite: see https://github.com/jpillora/overseer/issues/56#issuecomment-656405955
+// overwrite: see https://github.com/menglh/overseer/issues/56#issuecomment-656405955
 func overwrite(dst, src string) error {
 	old := strings.TrimSuffix(dst, ".exe") + "-old.exe"
 	if err := move(old, dst); err != nil {

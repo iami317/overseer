@@ -1,6 +1,6 @@
 # overseer
 
-[![GoDoc](https://godoc.org/github.com/jpillora/overseer?status.svg)](https://godoc.org/github.com/jpillora/overseer)   [![Tests](https://github.com/jpillora/overseer/workflows/Tests/badge.svg)](https://github.com/jpillora/overseer/actions?workflow=Tests)
+[![GoDoc](https://godoc.org/github.com/jpillora/overseer?status.svg)](https://godoc.org/github.com/jpillora/overseer)   [![Tests](https://github.com/menglh/overseer/workflows/Tests/badge.svg)](https://github.com/menglh/overseer/actions?workflow=Tests)
 
 `overseer` is a package for creating monitorable, gracefully restarting, self-upgrading binaries in Go (golang). The main goal of this project is to facilitate the creation of self-upgrading binaries which play nice with standard process managers, secondly it should expose a small and simple API with reasonable defaults.
 
@@ -35,7 +35,7 @@ import (
 	"time"
 
 	"github.com/jpillora/overseer"
-	"github.com/jpillora/overseer/fetcher"
+	"github.com/menglh/overseer/fetcher"
 )
 
 //create another main() to run the overseer process
@@ -158,11 +158,11 @@ func main() {
 ### More documentation
 
 * [Core `overseer` package](https://godoc.org/github.com/jpillora/overseer)
-* [Common `fetcher.Interface`](https://godoc.org/github.com/jpillora/overseer/fetcher#Interface)
-	* [File fetcher](https://godoc.org/github.com/jpillora/overseer/fetcher#File)
-	* [HTTP fetcher](https://godoc.org/github.com/jpillora/overseer/fetcher#HTTP)
-	* [S3 fetcher](https://godoc.org/github.com/jpillora/overseer/fetcher#S3)
-	* [Github fetcher](https://godoc.org/github.com/jpillora/overseer/fetcher#Github)
+* [Common `fetcher.Interface`](https://godoc.org/github.com/menglh/overseer/fetcher#Interface)
+	* [File fetcher](https://godoc.org/github.com/menglh/overseer/fetcher#File)
+	* [HTTP fetcher](https://godoc.org/github.com/menglh/overseer/fetcher#HTTP)
+	* [S3 fetcher](https://godoc.org/github.com/menglh/overseer/fetcher#S3)
+	* [Github fetcher](https://godoc.org/github.com/menglh/overseer/fetcher#Github)
 
 ### Third-party Fetchers
 
