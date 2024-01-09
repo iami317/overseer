@@ -27,6 +27,7 @@ var defaultHTTPCheckHeaders = []string{"ETag", "If-Modified-Since", "Last-Modifi
 
 // Init validates the provided config
 func (h *HTTP) Init() error {
+	fmt.Println("------", "init")
 	//apply defaults
 	if h.URL == "" {
 		return fmt.Errorf("URL required")
@@ -58,6 +59,7 @@ func (h *HTTP) Fetch() (io.Reader, error) {
 		return nil, fmt.Errorf("HEAD request failed (status code %d)", resp.StatusCode)
 	}
 	//if all headers match, skip update
+
 	matches, total := 0, 0
 	for _, header := range h.CheckHeaders {
 		if curr := resp.Header.Get(header); curr != "" {
@@ -71,6 +73,7 @@ func (h *HTTP) Fetch() (io.Reader, error) {
 	if matches == total {
 		return nil, nil //skip, file match
 	}
+
 	//binary fetch using GET
 	resp, err = http.Get(h.URL)
 	if err != nil {

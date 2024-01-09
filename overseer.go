@@ -25,34 +25,28 @@ const (
 
 // Config defines overseer's run-time configuration
 type Config struct {
-	//Required will prevent overseer from fallback to running
-	//running the program in the main process on failure.
+	//Required 将防止监督者在失败时回退到运行在主进程中运行程序。
 	Required bool
 	//Program's main function
 	Program func(state State)
-	//Program's zero-downtime socket listening address (set this or Addresses)
+	//程序的零停机套接字侦听地址（设置此地址或地址）
 	Address string
-	//Program's zero-downtime socket listening addresses (set this or Address)
+	//程序的零停机套接字侦听地址（设置此地址或地址）
 	Addresses []string
-	//RestartSignal will manually trigger a graceful restart. Defaults to SIGUSR2.
+	//RestartSignal 将手动触发正常重启。默认值为 SIGUSR2。
 	RestartSignal os.Signal
-	//TerminateTimeout controls how long overseer should
-	//wait for the program to terminate itself. After this
-	//timeout, overseer will issue a SIGKILL.
+	//TerminateTimeout 控制监督程序应等待程序自行终止的时间。在此超时之后，监督者将发出 SIGKILL。
 	TerminateTimeout time.Duration
-	//MinFetchInterval defines the smallest duration between Fetch()s.
-	//This helps to prevent unwieldy fetch.Interfaces from hogging
-	//too many resources. Defaults to 1 second.
+	//MinFetchInterval 定义 Fetch（） 之间的最小持续时间。
+	//这有助于防止难以提取。占用太多资源的接口。默认值为 1 秒。
 	MinFetchInterval time.Duration
-	//PreUpgrade runs after a binary has been retrieved, user defined checks
-	//can be run here and returning an error will cancel the upgrade.
+	//PreUpgrade 在检索到二进制文件后运行，可以在此处运行用户定义的检查，返回错误将取消升级。
 	PreUpgrade func(tempBinaryPath string) error
 	//Debug enables all [overseer] logs.
 	Debug bool
 	//NoWarn disables warning [overseer] logs.
 	NoWarn bool
-	//NoRestart disables all restarts, this option essentially converts
-	//the RestartSignal into a "ShutdownSignal".
+	//NoRestart 禁用所有重启，此选项实质上是将 RestartSignal 转换为“ShutdownSignal”。
 	NoRestart bool
 	//NoRestartAfterFetch disables automatic restarts after each upgrade.
 	//Though manual restarts using the RestartSignal can still be performed.
